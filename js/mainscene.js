@@ -17,10 +17,10 @@
                         type: "Label",
                         name: "fomulaLabel",
                         x   : 240,
-                        y   : 80,
+                        y   : 240,
                         width: 480,
                         height: 40,
-                        text: userData.touchTotalCount,
+                        text: "",
                         align: "center",
                         fontSize: 48
                     },
@@ -28,12 +28,23 @@
                         type: "Label",
                         name: "answerLabel",
                         x   : 240,
-                        y   : 120,
+                        y   : 320,
                         width: 480,
                         height: 40,
-                        text: userData.time,
+                        text: "",
                         align: "center",
                         fontSize: 48
+                    },
+                    {
+                        type: "Label",
+                        name: "scoreLabel",
+                        x   : 240,
+                        y   : 60,
+                        width: 480,
+                        height: 40,
+                        text: userData.score,
+                        align: "center",
+                        fontSize: 24
                     }
                 ]
             });
@@ -75,6 +86,7 @@
         setLabel: function(){
             this.fomulaLabel.text = this.getFomulaString(this.number[0], this.number[1], this.operator);
             this.answerLabel.text = this.answer;
+            this.scoreLabel.text = "score : " + userData.score;
             console.log(this.number[0] + " " + this.operator + " " + this.number[1], this.getResult(this.number[0], this.number[1], this.operator), this.answer);
         },
         
@@ -90,6 +102,7 @@
             else{
                 console.log("MissTake", "\n");
                 userData.score -= 100;
+                if(userData.score < 0){ userData.score = 0; }
             }
             this.initFomula();
             this.setLabel();
