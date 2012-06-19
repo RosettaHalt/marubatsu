@@ -55,14 +55,14 @@
             var self = this;
             var correctButton = tm.app.iPhoneButton(160, 120, "black");
             correctButton.setPosition(120,640);
-            correctButton.label.text = "Title";
+            correctButton.label.text = "正";
             this.addChild(correctButton);
             correctButton.onpointingstart = function() {
                 self.checkResult(0);
             };
             var missButton = tm.app.iPhoneButton(160, 120, "black");
             missButton.setPosition(360,640);
-            missButton.label.text = "Title";
+            missButton.label.text = "誤";
             this.addChild(missButton);
             missButton.onpointingstart = function() {
                 self.checkResult(1);
