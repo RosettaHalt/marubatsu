@@ -56,7 +56,7 @@
             };
             
             // タイマー
-            this.timer = Timer(60);
+            this.timer = Timer(60*30);
             this.timer.width = app.width;
             this.addChild(this.timer);
         },
@@ -86,7 +86,6 @@
             this.fomulaLabel.text = this.getFomulaString(this.number[0], this.number[1], this.operator);
             this.answerLabel.text = this.answer;
             this.scoreLabel.text = "score : " + userData.score;
-            console.log(this.number[0] + " " + this.operator + " " + this.number[1], this.getResult(this.number[0], this.number[1], this.operator), this.answer);
         },
         
         checkResult: function(answer){            
@@ -95,11 +94,9 @@
             else{ result = 1; }
             
             if(answer == result){
-                console.log("Success", "\n");
                 userData.score += 100;
             }
             else{
-                console.log("MissTake", "\n");
                 userData.score -= 100;
                 if(userData.score < 0){ userData.score = 0; }
             }
@@ -165,7 +162,6 @@
         
         getFomulaString: function(num1, num2, operator){
             var ope = this.getOperatorString(operator);
-            console.log(ope);
             switch(operator){
                 case 0:
                 case 1:

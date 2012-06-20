@@ -2,6 +2,7 @@
 
 表示される計算式が正しいかひたすら選択するゲームです。
 
+- [Formula Front](http://bit.ly/MLxNTp)
 
 ## ルール
 

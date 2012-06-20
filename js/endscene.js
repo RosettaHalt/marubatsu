@@ -27,7 +27,7 @@
                 type: "tweet",
                 text: "Score : {0}\n".format(userData.score),
                 hashtags: "Formula Front,tmlibjs",
-                url: "http://bit.ly/MsUcIt",
+                url: "http://bit.ly/MLxNTp",
             });
             var tweetButton = tm.app.iPhoneButton(120, 60, "black");
             tweetButton.setPosition(app.width/2, 480);
@@ -54,4 +54,5 @@
             app.pushScene(PauseScene());
         }
     });
+});
 })(window);
