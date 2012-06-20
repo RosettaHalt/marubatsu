@@ -1,18 +1,25 @@
-
 (function(ns) {
+
+    var UI_DATA = {
+        LABELS: {
+            children: [
+                {
+                    type:"Label",name:"scoreLabel",
+                    x:220,y:360,width:480,fillStyle:"white",
+                    text:"Formula Front",fontSize:32,align:"top"
+                }
+            ]
+        }
+    }
+    
     ns.TitleScene = tm.createClass({
         superClass: tm.app.Scene,
     
         init: function(){
             this.superInit();
-            
-            var label = tm.app.Label(32,32);
-            label.x = app.width/3;
-            label.y = app.height/2;
-            label.text = "Formula Front";
-            label.text.align = "end";
-            label.width = app.width
-            this.addChild(label);
+
+            // ラベル
+            this.fromJSON(UI_DATA.LABELS);
         },
     
         update: function(){
@@ -25,7 +32,7 @@
             }
         },
     
-        // ポーズ画面 : 別タブへ切り替わった時 / Ttbキーを押した時
+        // ポーズ画面 : 別タブへ切り替わった時 / Tabキーを押した時
         onblur: function() {
             app.pushScene(PauseScene(this.op));
         }

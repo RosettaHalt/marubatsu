@@ -1,4 +1,27 @@
 (function(ns) {
+
+    var UI_DATA = {
+        LABELS: {
+            children: [
+                {
+                    type:"Label",name:"fomulaLabel",
+                    x:240,y:240,width:480,fillStyle:"white",
+                    text:"dammy",fontSize:48,align:"center"
+                },
+                {
+                    type:"Label",name:"answerLabel",
+                    x:240,y:320,width:480,fillStyle:"white",
+                    text:"dammy",fontSize:48,align:"center"
+                },
+                {
+                    type:"Label",name:"scoreLabel",
+                    x:240,y:60,width:480,fillStyle:"white",
+                    text:"dammy",fontSize:32,align:"center"
+                }
+            ]
+        }
+    }
+    
     ns.MainScene = tm.createClass({
         superClass: tm.app.Scene,
 
@@ -11,65 +34,41 @@
             this.answer = 0;
 
             // ラベル
-            this.fromJSON({
-                children: [
-                    {
-                        type: "Label",
-                        name: "fomulaLabel",
-                        x   : 240,
-                        y   : 240,
-                        width: 480,
-                        height: 40,
-                        text: "",
-                        align: "center",
-                        fontSize: 48
-                    },
-                    {
-                        type: "Label",
-                        name: "answerLabel",
-                        x   : 240,
-                        y   : 320,
-                        width: 480,
-                        height: 40,
-                        text: "",
-                        align: "center",
-                        fontSize: 48
-                    },
-                    {
-                        type: "Label",
-                        name: "scoreLabel",
-                        x   : 240,
-                        y   : 60,
-                        width: 480,
-                        height: 40,
-                        text: userData.score,
-                        align: "center",
-                        fontSize: 24
-                    }
-                ]
-            });
+            this.fromJSON(UI_DATA.LABELS);
 
             this.initFomula();
             this.setLabel();
             
             var self = this;
             var correctButton = tm.app.iPhoneButton(160, 120, "black");
-            correctButton.setPosition(120,640);
+            correctButton.setPosition(120,480);
             correctButton.label.text = "正";
             this.addChild(correctButton);
             correctButton.onpointingstart = function() {
                 self.checkResult(0);
             };
             var missButton = tm.app.iPhoneButton(160, 120, "black");
-            missButton.setPosition(360,640);
+            missButton.setPosition(360,480);
             missButton.label.text = "誤";
             this.addChild(missButton);
             missButton.onpointingstart = function() {
                 self.checkResult(1);
             };
+            
+            // タイマー
+            this.timer = Timer(60);
+            this.timer.width = app.width;
+            this.addChild(this.timer);
         },
 
         update: function(){
+            if(this.timer.checkTimeOut()){
+                this.addChild( tm.fade.FadeOut(
+                    app.width, app.height, "#000", 1000, function() {
+                        app.replaceScene(EndScene());
+                    })
+                );
+            }
         },
 
         initNumber: function(){
