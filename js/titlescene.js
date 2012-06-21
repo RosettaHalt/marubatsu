@@ -6,7 +6,7 @@
                 {
                     type:"Label",name:"scoreLabel",
                     x:220,y:360,width:480,fillStyle:"white",
-                    text:"Formula Front",fontSize:32,align:"top"
+                    text:"◯×早計算！",fontSize:32,align:"top"
                 }
             ]
         }
