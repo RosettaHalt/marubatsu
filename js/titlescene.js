@@ -24,6 +24,7 @@
     
         update: function(){
             if( app.pointing.getPointingEnd() == true ){
+                tm.sound.SoundManager.get("decide").play();
                 this.addChild( tm.fade.FadeOut(
                     app.width, app.height, "#000", 1000, function(){
                         app.replaceScene(MainScene());

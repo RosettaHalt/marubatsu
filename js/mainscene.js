@@ -32,6 +32,7 @@
             this.number = [];
             this.operator = 0;
             this.answer = 0;
+            this.chain = 1;
 
             // ラベル
             this.fromJSON(UI_DATA.LABELS);
@@ -112,10 +113,12 @@
             else{ result = 1; }
             
             if(answer == result){
-                userData.score += 100;
+                userData.score += 100*this.chain;
+                ++this.chain;
             }
             else{
                 userData.score -= 100;
+                this.chain = 1;
                 if(userData.score < 0){ userData.score = 0; }
             }
             this.initFomula();

@@ -25,7 +25,7 @@
             // ツイートボタン
             var msg = tm.social.Twitter.createURL({
                 type: "tweet",
-                text: "Score : {0}\n ◯×早計算！ ".format(userData.score),
+                text: "◯×早計算！\nScore : {0}\n".format(userData.score),
                 hashtags: "marubatsukeisan,tmlibjs",
                 url: "http://bit.ly/MLxNTp",
             });
