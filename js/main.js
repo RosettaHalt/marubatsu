@@ -1,4 +1,3 @@
-
 tm.main(function(){
     app = tm.app.CanvasApp("#world");
     app.background = "black";

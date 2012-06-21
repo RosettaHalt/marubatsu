@@ -1,5 +1,5 @@
 // リソースの読み込み
-tm.preload(function() {
+tm.preload(function(){
     tm.sound.SoundManager.add("decide", "sound/se/decide.wav");
     tm.sound.SoundManager.add("touch", "sound/se/touch.wav");
     tm.sound.SoundManager.add("clear", "sound/se/clear.wav");

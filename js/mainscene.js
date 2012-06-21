@@ -1,4 +1,4 @@
-(function(ns) {
+(function(ns){
 
     var UI_DATA = {
         LABELS: {
@@ -44,14 +44,14 @@
             correctButton.setPosition(120,480);
             correctButton.label.text = "正";
             this.addChild(correctButton);
-            correctButton.onpointingstart = function() {
+            correctButton.onpointingstart = function(){
                 self.checkResult(0);
             };
             var missButton = tm.app.iPhoneButton(160, 120, "black");
             missButton.setPosition(360,480);
             missButton.label.text = "誤";
             this.addChild(missButton);
-            missButton.onpointingstart = function() {
+            missButton.onpointingstart = function(){
                 self.checkResult(1);
             };
             
@@ -64,7 +64,7 @@
         update: function(){
             if(this.timer.checkTimeOut()){
                 this.addChild( tm.fade.FadeOut(
-                    app.width, app.height, "#000", 1000, function() {
+                    app.width, app.height, "#000", 1000, function(){
                         app.replaceScene(EndScene());
                     })
                 );
@@ -72,13 +72,31 @@
         },
 
         initNumber: function(){
-            this.number[0] = Math.rand(0,99);
-            this.number[1] = Math.rand(0,99);
+            switch(this.operator){
+                case 0:
+                case 1:
+                    this.number[0] = Math.rand(0,99);
+                    this.number[1] = Math.rand(0,99);
+                    break;
+                case 2:
+                    this.number[0] = Math.rand(0,99);
+                    this.number[1] = Math.rand(0,10);
+                    break;
+                case 3:
+                case 4:
+                    this.number[0] = Math.rand(0,128);
+                    this.number[1] = Math.rand(0,10);
+                    break;
+                default:
+                    this.number[0] = Math.rand(0,99);
+                    this.number[1] = Math.rand(0,99);
+                    break;
+            }
         },
 
         initFomula: function(){
-            this.initNumber();
             this.operator = Math.rand(0,4);
+            this.initNumber();
             this.answer = this.getUncertainResult(this.number[0], this.number[1], this.operator);
         },
 
@@ -200,7 +218,7 @@
         },
 
         // ポーズ画面 : 別タブへ切り替わった時 / Tabキーを押した時
-        onblur: function() {
+        onblur: function(){
             app.pushScene(PauseScene(this.bgm));
         }
     });

@@ -23,7 +23,7 @@ var Timer = tm.createClass({
         this.width -= this.timerSpeed;
     },
 
-    draw: function(canvas) {
+    draw: function(canvas){
         canvas.fillStyle = this.color;
         canvas.fillRect(this.x, this.y, this.width, 30);
     },

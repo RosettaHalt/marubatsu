@@ -1,4 +1,4 @@
-(function(ns) {
+(function(ns){
         
     var UI_DATA = {
         LABELS: {
@@ -33,7 +33,7 @@
             tweetButton.setPosition(app.width/2, 480);
             tweetButton.label.text = "Tweet";
             this.addChild(tweetButton);
-            tweetButton.onpointingstart = function() {
+            tweetButton.onpointingstart = function(){
                 window.open(msg, "_self");
             };
         },
@@ -42,7 +42,7 @@
             if( app.pointing.getPointingEnd() == true ){
                 
                 this.addChild( tm.fade.FadeOut(
-                    app.width, app.height, "#000", 1000, function() {
+                    app.width, app.height, "#000", 1000, function(){
                         app.replaceScene(TitleScene());
                     })
                 );
@@ -50,9 +50,8 @@
         },
 
         // ポーズ画面 : 別タブへ切り替わった時 / Tabキーを押した時
-        onblur: function() {
+        onblur: function(){
             app.pushScene(PauseScene());
         }
     });
-});
 })(window);
