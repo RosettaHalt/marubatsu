@@ -27,7 +27,7 @@
                 type: "tweet",
                 text: "◯×早計算！\nScore : {0}\n".format(userData.score),
                 hashtags: "marubatsukeisan,tmlibjs",
-                url: "http://bit.ly/MLxNTp",
+                url: "http://bit.ly/LO8a6n",
             });
             var tweetButton = tm.app.iPhoneButton(120, 60, "black");
             tweetButton.setPosition(app.width/2, 480);
