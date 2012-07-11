@@ -1,8 +1,8 @@
-# ChainWave
+# ◯×早計算！
 
 表示される計算式が正しいかひたすら選択するゲームです。
 
-- [Formula Front](http://bit.ly/MLxNTp)
+- [◯×早計算！](http://bit.ly/MLxNTp)
 
 ## ルール
 
